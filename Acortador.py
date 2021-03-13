@@ -1,5 +1,5 @@
 import time
-import pyshorteners
+import urllib.request
 RED = '\033[31m'
 WHITE = '\033[37m'
 
@@ -11,7 +11,10 @@ while True:
 |__|__|___|___|_| |_| |__,|___|___|_|     |_____|""")
     print(WHITE+"-Programado por:", RED+"Balta")
 
-    link = input(WHITE+"\n-> Link para Acortar: ")
+    def tiny_url(url):
+        apiurl = "http://tinyurl.com/api-create.php?url="
+        tinyurl = urllib.request.urlopen(apiurl+url).read()
+        return tinyurl.decode("utf-8")
 
-    print("\nLink Acortado: " + str(pyshorteners.Shortener().tinyurl.short(link)))
-    time.sleep(3)
+    url = input("ingrese aqui su direccion url a acortar: ")
+    print(tiny_url(url))
