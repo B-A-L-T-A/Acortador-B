@@ -1,6 +1,9 @@
 import time
 import urllib.request
 from colorama import init, Fore
+import os
+
+os.system("clear")
 
 while True:
     print(Fore.YELLOW + """
